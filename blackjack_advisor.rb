@@ -1,14 +1,3 @@
-
-
-
-first_card = gets.chomp.to_i
-
-second_card = gets.chomp.to_i
-
-total = first_card + second_card
-
-dealer_card = gets.chomp
-
 hard_moves = {
   "5": {
     "2": "H",
@@ -217,11 +206,50 @@ hard_moves = {
 
 }
 
-puts "total: #{total}"
-puts "dealer card: #{dealer_card}"
+loop do
+
+puts "Enter your first card: "
+first_card = gets.chomp.to_i
+
+puts "Enter your second card: "
+second_card = gets.chomp.to_i
+
+puts "Enter the dealer's card"
+dealer_card = gets.chomp
+
+total = first_card + second_card
 
 x = hard_moves[total.to_s.to_sym]
 y = x[dealer_card.to_sym]
 
-puts "x: #{x}"
-puts "y: #{y}"
+
+if y == "H"
+  puts "You should hit!"
+
+elsif y == "S"
+  puts "You should stand!"
+
+elsif y == "P"
+  puts "You should split!"
+
+elsif y == "Dh"
+  puts "You should double if possible, otherwise Hit."
+
+elsif y == "Ds"
+  puts "You should double if possible, otherwise Stand."
+
+else
+  puts "Wrong input"
+  break
+end
+end
+
+
+#if gets.chomp.to_s == ""
+
+#end
+
+#puts "total: #{total}"
+#puts "dealer card: #{dealer_card}"
+#puts "x: #{x}"
+#puts "y: #{y}"
