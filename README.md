@@ -1,3 +1,2 @@
 # Blackjack Advisor
-TODO fill out later
-  how to write a good README!
+This program will take input from the user and return a suggested next move.
