@@ -1,3 +1,4 @@
+require 'pry'
 hard_moves = {
   "5": {
     "2": "H",
@@ -206,50 +207,72 @@ hard_moves = {
 
 }
 
+card_values = {
+  "A"=> 11,
+  "J"=> 10,
+  "K"=> 10,
+  "Q"=> 10,
+  "10"=> 10,
+  "9"=> 9,
+  "8"=> 8,
+  "7"=> 7,
+  "6"=> 6,
+  "5"=> 5,
+  "4"=> 4,
+  "3"=> 3,
+  "2"=> 2,
+}
+
+def optimal_move(y)
+  if y == "H"
+    puts "You should hit!"
+
+  elsif y == "S"
+    puts "You should stand!"
+
+  elsif y == "P"
+    puts "You should split!"
+
+  elsif y == "Dh"
+    puts "You should double if possible, otherwise Hit."
+
+  else y == "Ds"
+    puts "You should double if possible, otherwise Stand."
+
+  end
+end
+
+def check_input(input, card_values)
+  until input == "A" || input == "K" || input == "Q" || input == "J" || (1..11).to_a.include?(input.to_i)
+    puts "Wrong input type"
+    input = card_values[gets.chomp]
+  end
+  return input
+end
+
 loop do
 
+puts "To use this blackjack advisor enter A for aces, K for kings, Q for
+queen, J for jacks and face value for 2-10"
+
 puts "Enter your first card: "
-first_card = gets.chomp.to_i
+first_card = card_values[gets.chomp]
+first_card = check_input(first_card, card_values)
 
 puts "Enter your second card: "
-second_card = gets.chomp.to_i
+second_card = card_values[gets.chomp]
+second_card = check_input(second_card, card_values)
 
 puts "Enter the dealer's card"
-dealer_card = gets.chomp
+dealer_card = card_values[gets.chomp]
+dealer_card = check_input(dealer_card, card_values)
+
 
 total = first_card + second_card
 
 x = hard_moves[total.to_s.to_sym]
-y = x[dealer_card.to_sym]
+y = x[dealer_card.to_s.to_sym]
 
+optimal_move(y)
 
-if y == "H"
-  puts "You should hit!"
-
-elsif y == "S"
-  puts "You should stand!"
-
-elsif y == "P"
-  puts "You should split!"
-
-elsif y == "Dh"
-  puts "You should double if possible, otherwise Hit."
-
-elsif y == "Ds"
-  puts "You should double if possible, otherwise Stand."
-
-else
-  puts "Wrong input"
-  break
 end
-end
-
-
-#if gets.chomp.to_s == ""
-
-#end
-
-#puts "total: #{total}"
-#puts "dealer card: #{dealer_card}"
-#puts "x: #{x}"
-#puts "y: #{y}"
