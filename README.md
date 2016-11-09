@@ -17,11 +17,10 @@ optimal_move(y)
 
 ##Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain why the project exists.
+This program was a class assignment. It currently only predicts the best moves for "hard" hands. Given more time I would like to include the statistics for "soft", and "pair" hands as well.
 
 ##Installation
-
-Provide code examples and explanations of how to get the project.
+Before running this program on your machine you will need to download ruby.
 
 <!-- ##Tests -->
 ##Contributors
