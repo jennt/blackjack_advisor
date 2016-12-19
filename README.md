@@ -1,5 +1,4 @@
 # Blackjack Advisor
-###\*under construction\*
 
 ## Synopsis
 
