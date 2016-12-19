@@ -223,22 +223,18 @@ card_values = {
   "2"=> 2,
 }
 
-def optimal_move(y)
-  if y == "H"
+def optimal_move(move)
+  case move
+  when "H"
     puts "You should hit!"
-
-  elsif y == "S"
+  when"S"
     puts "You should stand!"
-
-  elsif y == "P"
+  when "P"
     puts "You should split!"
-
-  elsif y == "Dh"
+  when "Dh"
     puts "You should double if possible, otherwise Hit."
-
-  else y == "Ds"
+  else "Ds"
     puts "You should double if possible, otherwise Stand."
-
   end
 end
 
@@ -271,8 +267,8 @@ dealer_card = check_input(dealer_card, card_values)
 total = first_card + second_card
 
 x = hard_moves[total.to_s.to_sym]
-y = x[dealer_card.to_s.to_sym]
+move = x[dealer_card.to_s.to_sym]
 
-optimal_move(y)
+optimal_move(move)
 
 end

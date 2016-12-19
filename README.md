@@ -18,12 +18,7 @@ optimal_move(y)
 
 This program was a class assignment. It currently only predicts the best moves for "hard" hands. Given more time I would like to include the statistics for "soft", and "pair" hands as well.
 
-##Installation
-Before running this program on your machine you will need to download ruby.
-
 <!-- ##Tests -->
 ##Contributors
 
 Jenn Tustin
-
-##License
